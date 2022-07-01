@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="AdicionarFragment">
+    tools:context=".AdicionarFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -32,11 +32,18 @@
                 android:text="@string/nome" />
 
             <EditText
-                android:id="@+id/editText_nome_medico"
+                android:id="@+id/editText_nome_cliente"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"/>
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="CPF" />
 
             <EditText
                 android:id="@+id/editText_cpf_cliente"
@@ -47,7 +54,7 @@
 
 
             <Button
-                android:id="@+id/button_adicionar_medico"
+                android:id="@+id/button_adicionar_cliente"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/salvar" />

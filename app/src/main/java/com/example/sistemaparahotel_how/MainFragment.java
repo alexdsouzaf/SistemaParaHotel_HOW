@@ -29,7 +29,7 @@ public class MainFragment extends Fragment {
         if (savedInstanceState == null) {
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_cliente, new ListarFragment()).commit();
         }
-        Button btnAdicionar = v.findViewById(R.id.button_adicionar_medico);
+        Button btnAdicionar = v.findViewById(R.id.button_adicionar_cliente);
         btnAdicionar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,7 +37,7 @@ public class MainFragment extends Fragment {
             }
         });
 
-        Button btnListar = v.findViewById(R.id.button_listar_medico);
+        Button btnListar = v.findViewById(R.id.button_listar_cliente);
         btnListar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

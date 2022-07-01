@@ -36,7 +36,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL(DROP_TABLE_CLIENTE);
+        //sqLiteDatabase.execSQL(DROP_TABLE_CLIENTE);
         onCreate(sqLiteDatabase);
     }
 
@@ -50,9 +50,9 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         cv.put("profissao", pCliente.getProfissao());
         cv.put("RG", pCliente.getRg());
         cv.put("nacionalidade", pCliente.getNacionalidade());
-        db.close();
-        long id = db.insert(TABELA_CLIENTE,null,cv);
 
+        long id = db.insert(TABELA_CLIENTE,null,cv);
+        db.close();
         return id;
     }
 
@@ -92,8 +92,8 @@ public class DataBaseHelper extends SQLiteOpenHelper{
                 //"nacionalidade"
         //};
         Cursor data = db.query(TABELA_CLIENTE,columns,null,null,null,null,"nome");
-        int[] to = {R.id.txtID,R.id.txtNome,R.id.txtCpf};
-        SimpleCursorAdapter adapter = new SimpleCursorAdapter(context, R.layout.layout_clientes,data,columns,to,0);
+        int[] to = {R.id.textViewIdListarCliente,R.id.textViewNomeListarCliente,R.id.textViewCpfListarCliente};
+        SimpleCursorAdapter adapter = new SimpleCursorAdapter(context, R.layout.cliente_item_list_view,data,columns,to,0);
         lv.setAdapter(adapter);
         db.close();
     }

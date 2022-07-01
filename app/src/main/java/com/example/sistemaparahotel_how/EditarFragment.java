@@ -36,34 +36,34 @@ public class EditarFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.cliente_fragment_editar, container, false);
 
-        etNome = v.findViewById(R.id.editText_nome_medico);
+        etNome = v.findViewById(R.id.editText_nome_cliente);
         etCpf = v.findViewById(R.id.editText_cpf_cliente);
 
         Bundle b = getArguments();
-        int id_medico = b.getInt("id");
+        int id_cliente = b.getInt("id");
         databaseHelper = new DataBaseHelper(getActivity());
-        m = databaseHelper.GetByIdCliente(id_medico);
+        m = databaseHelper.GetByIdCliente(id_cliente);
 
         etNome.setText(m.getNome());
         etCpf.setText(m.getCpf());
 
-        Button btnEditar = v.findViewById(R.id.button_editar_medico);
+        Button btnEditar = v.findViewById(R.id.button_editar_cliente);
         btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                editar(id_medico);
+                editar(id_cliente);
             }
         });
-        Button btnExcluir = v.findViewById(R.id.button_excluir_medico);
+        Button btnExcluir = v.findViewById(R.id.button_excluir_cliente);
         btnExcluir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setTitle("DEFINIR MENSAGEM");
+                builder.setTitle("Deseja excluir este registro?");
                 builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        excluir(id_medico);
+                        excluir(id_cliente);
                     }
                 });
                 builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
@@ -81,16 +81,16 @@ public class EditarFragment extends Fragment {
 
     private void editar(int id) {
         if (etNome.getText().toString().equals("")) {
-            Toast.makeText(getActivity(), "Por favor, informe o nome do médico", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Por favor, informe o nome do cliente", Toast.LENGTH_LONG).show();
         } else if (etCpf.getText().toString().equals("")) {
-            Toast.makeText(getActivity(), "Por favor, informe a especialidade do médico", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Por favor, informe a cpf do cliente", Toast.LENGTH_LONG).show();
         } else {
             m = new Cliente();
             m.setId(id);
             m.setNome(etNome.getText().toString());
             m.setCpf(etCpf.getText().toString());
             databaseHelper.updateCliente(m);
-            Toast.makeText(getActivity(), "Médico atualizado", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Cliente atualizado", Toast.LENGTH_LONG).show();
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_cliente, new ListarFragment()).commit();
         }
     }

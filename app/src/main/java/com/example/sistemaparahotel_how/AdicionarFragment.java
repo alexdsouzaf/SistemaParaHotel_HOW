@@ -32,11 +32,11 @@ public class AdicionarFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.cliente_fragment_adicionar, container, false);
 
-        etNome = v.findViewById(R.id.editText_nome_medico);
+        etNome = v.findViewById(R.id.editText_nome_cliente);
         etCpf = v.findViewById(R.id.editText_cpf_cliente);
 
 
-        Button btnAdicionar = v.findViewById(R.id.button_adicionar_medico);
+        Button btnAdicionar = v.findViewById(R.id.button_adicionar_cliente);
         btnAdicionar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
