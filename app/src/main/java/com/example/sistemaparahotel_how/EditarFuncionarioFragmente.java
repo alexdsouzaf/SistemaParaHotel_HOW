@@ -87,7 +87,7 @@ public class EditarFuncionarioFragmente extends Fragment {
             m.setCpf(etCpf.getText().toString());
             databaseHelper.updateFuncionario(m);
             Toast.makeText(getActivity(), "Funcionario atualizado", Toast.LENGTH_LONG).show();
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_funcionario, new ListarFuncionarioFragmente()).commit();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_main, new ListarFuncionarioFragmente()).commit();
         }
     }
 
@@ -96,6 +96,6 @@ public class EditarFuncionarioFragmente extends Fragment {
         m.setId(id);
         databaseHelper.deleteFuncionario(m);
         Toast.makeText(getActivity(), "Cliente excluído", Toast.LENGTH_LONG).show();
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_funcionario, new ListarFuncionarioFragmente()).commit();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_main, new ListarFuncionarioFragmente()).commit();
     }
 }

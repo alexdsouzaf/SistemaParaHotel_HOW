@@ -91,7 +91,7 @@ public class EditarFragment extends Fragment {
             m.setCpf(etCpf.getText().toString());
             databaseHelper.updateCliente(m);
             Toast.makeText(getActivity(), "Cliente atualizado", Toast.LENGTH_LONG).show();
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_cliente, new ListarFragment()).commit();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_main, new ListarFragment()).commit();
         }
     }
 
@@ -100,6 +100,6 @@ public class EditarFragment extends Fragment {
         m.setId(id);
         databaseHelper.deleteCliente(m);
         Toast.makeText(getActivity(), "Cliente excluído", Toast.LENGTH_LONG).show();
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_cliente, new ListarFragment()).commit();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_main, new ListarFragment()).commit();
     }
 }
