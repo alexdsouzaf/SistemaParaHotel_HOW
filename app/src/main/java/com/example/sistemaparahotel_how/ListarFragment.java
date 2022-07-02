@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -47,6 +48,14 @@ public class ListarFragment extends Fragment {
             }
         });
 
+
+        Button btnVoltar = v.findViewById(R.id.btnVoltar);
+        btnVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_main, new OpcoesClienteFragment()).commit();
+            }
+        });
         return v;
     }
 }

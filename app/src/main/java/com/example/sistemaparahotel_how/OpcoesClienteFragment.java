@@ -42,6 +42,14 @@ public class OpcoesClienteFragment extends Fragment {
             }
         });
 
+        Button btnListar = view.findViewById(R.id.btnListarCliente);
+        btnListar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_main, new ListarFragment()).commit();
+            }
+        });
+
         return view;
     }
 }
