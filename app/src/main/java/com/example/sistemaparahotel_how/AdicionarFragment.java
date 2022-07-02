@@ -49,9 +49,9 @@ public class AdicionarFragment extends Fragment {
 
     private void adicionar() {
         if (etNome.getText().toString().equals("")) {
-            Toast.makeText(getActivity(), "Por favor, informe o nome do médico", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Por favor, informe o nome do hóspede", Toast.LENGTH_LONG).show();
         } else if (etCpf.getText().toString().equals("")) {
-            Toast.makeText(getActivity(), "Por favor, informe a especialidade do médico", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Por favor, informe a especialidade do hóspede", Toast.LENGTH_LONG).show();
         } else {
             DataBaseHelper databaseHelper = new DataBaseHelper(getActivity());
             Cliente m = new Cliente();
@@ -59,7 +59,7 @@ public class AdicionarFragment extends Fragment {
             m.setCpf(etCpf.getText().toString());
             databaseHelper.createCliente(m);
             Toast.makeText(getActivity(), "Cliente salvo", Toast.LENGTH_LONG).show();
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_cliente, new ListarFragment()).commit();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_main, new OpcoesClienteFragment()).commit();
 
 
         }
