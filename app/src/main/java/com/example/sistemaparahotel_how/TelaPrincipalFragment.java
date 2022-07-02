@@ -42,7 +42,7 @@ public class TelaPrincipalFragment extends Fragment {
         btnOperacional.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) { //vai abrir uma nova tela que da as opcoes de consulta e cadastro
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_main, new OpcoesClienteFragment()).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_main, new OpcoesFuncionarioFragment()).commit();
             }});
 
         Button btnReserva = view.findViewById(R.id.button_reserva);

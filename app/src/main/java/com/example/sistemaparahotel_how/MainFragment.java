@@ -45,7 +45,6 @@ public class MainFragment extends Fragment {
             }
         });
 
-        // Inflate the layout for this fragment
         return v;
     }
 }
